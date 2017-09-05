@@ -4,7 +4,7 @@ body {
 }
 
 #game-grid {
-    width: 70%;
+    width: 63%;
     margin: 0 auto; 
 }
 
@@ -14,3 +14,4 @@ body {
     border: 1px solid black; 
     float: left; 
 }
+
