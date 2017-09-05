@@ -5,55 +5,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hangman</title>
+    <title>Match Mania</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
-    <!-- Ideas for game: 
-    - Roulette
-    - Hangman  -->
-    
-    <h1>Hangman</h1>
-    <h4>Guess the word or phrase before its too late</h4>
+    <h1>Match Mania</h1>
+    <p>Uncover matching items before time expires</p>
 
-    <div id='hangman-noose'>
-        <div id='hor-beam'></div>
-        <div id='noose'></div>
-        <div id='vert-beam'></div>
-        <div id='base'></div>
-    </div>  
-
-    <div id='letter-container'>
-        <div class='letter'>A</div>
-        <div class='letter'>B</div>
-        <div class='letter'>C</div>
-        <div class='letter'>D</div>
-        <div class='letter'>E</div>
-        <div class='letter'>F</div>
-        <div class='letter'>G</div>
-        <div class='letter'>H</div>
-        <div class='letter'>I</div>
-        <div class='letter'>J</div>
-        <div class='letter'>K</div>
-        <div class='letter'>L</div>
-        <div class='letter'>M</div>
-        <div class='letter'>N</div>
-        <div class='letter'>O</div>
-        <div class='letter'>P</div>
-        <div class='letter'>Q</div>
-        <div class='letter'>R</div>
-        <div class='letter'>S</div>
-        <div class='letter'>T</div>
-        <div class='letter'>U</div>
-        <div class='letter'>V</div>
-        <div class='letter'>W</div>
-        <div class='letter'>X</div>
-        <div class='letter'>Y</div>
-        <div class='letter'>Z</div>
+    <div id='game-grid'>
+        <div class='square'>1</div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>10</div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>20</div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>30</div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>40</div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>50</div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>60</div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>70</div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>80</div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>90</div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>100</div>
     </div>
-
 
 
 

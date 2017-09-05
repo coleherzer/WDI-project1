@@ -1,54 +1,16 @@
 body {
     text-align: center; 
+    background: #808FFF; 
 }
 
-#hangman-noose {
-    width: 45%; 
-    height: 360px; 
-    margin: 0;
-    padding: 20px 20px 0 20px; 
-    float: left; 
-}
-
-#hor-beam {
-    background: black;
-    height: 5px; 
-    width: 200px; 
-    margin: 0 auto;  
-}
-
-#noose {
-    background: black; 
-    height: 50px; 
-    width: 5px; 
-    margin: -5px 160px 0 0; 
-    float: right; 
-}
-
-#vert-beam {
-    background: black; 
-    height: 300px; 
-    width: 5px;
-    margin: -5px 0 0 160px; 
-    float: left; 
-}
-
-#base {
-    background: black; 
-    height: 5px;
-    width: 500px; 
+#game-grid {
+    width: 70%;
     margin: 0 auto; 
-    clear: both; 
 }
 
-#letter-container {
-    width: 38%;
-    float: right; 
-    margin: 150px 50px 0 70px; 
-}
-
-.letter {
+.square {
+    height: 65px;
+    width: 65px; 
+    border: 1px solid black; 
     float: left; 
-    padding: 10px; 
-    font-size: 20px; 
 }
