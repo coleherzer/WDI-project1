@@ -1,16 +1,16 @@
 body {
     text-align: center; 
-    background: #808FFF; 
+    background: #72747D; 
 }
 
 #game-grid {
-    width: 63%;
+    width: 70%;
     margin: 0 auto; 
 }
 
 .square {
-    height: 65px;
-    width: 65px; 
+    height: 75px;
+    width: 75px; 
     border: 1px solid black; 
     float: left; 
 }

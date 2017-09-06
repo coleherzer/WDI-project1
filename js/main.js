@@ -26,17 +26,50 @@ function randomSquare (n) {
     return Math.floor(Math.random() * n);
 };
 
+var $body = $('body');
+
 function startGame () {
-    for (var i = 0; i < textMatches.length; i++) {
-        var $value = $squares[randomSquare(80)].innerHTML = textMatches[randomSquare(24)];
-        // $value.css('background', $value); 
-        // Left off here in changing background color
+    textMatches.forEach(function () {
+        var $newValue = $("<p class='new-value'>");
+        $newValue.text(textMatches[randomSquare(24)]);
+        // while random square has content
+            // find another random square
+        var randomIndex = randomSquare(50)       
+        console.log(randomIndex, $squares.eq(randomIndex))
+        while($squares.eq(randomIndex).text() != '') {
+            randomIndex = randomSquare(50)
+        };
+        $squares.eq(randomIndex).append($newValue);
+        $( "p.new-value" ).hide(); 
+    })
+}; 
+
+// startGame(); 
+
+var $play = $('#play'); 
+
+$play.on('click', function () {
+    if ($squares.text() == '') {
+        startGame(); 
     }
-};
+    // Will add more functionality as I continue
+});
 
-// $winner.css({display: 'block'}); 
+function checkMatch () {
 
-startGame(); 
+}
+
+$squares.on('click', function () {
+    $(this).find('p').show(); 
+})
+
+
+
+
+
+// var $items = $('.new-value');
+// $items = $items.text(); 
+// $items.css({display: 'none'}); 
 
 // Need to set the dsiplay for all those randomize squares to hidden
 // So the user can then click on the squares and see if two squares match
