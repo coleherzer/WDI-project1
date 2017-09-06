@@ -1,4 +1,5 @@
 var $grid = $('#game-grid'); 
+$grid.hide(); 
 
 var $squares = $('.square');
 var selectedCategory = null
@@ -9,34 +10,43 @@ var cards = {
     ],
     sports: [
         'baseball', 'baseball', 'basketball', 'basketball', 'hockey stick', 'hockey stick', 'tennis ball', 'tennis ball', 'soccer ball', 'soccer ball', 'golf club', 'golf club', 'racket', 'racket', '8 ball', '8 ball', 'football', 'football'
+    ],
+    colors: [
+        'blue', 'blue', 'red', 'red', 'green', 'green', 'yellow', 'yellow', 'black', 'black', 'gray', 'gray', 'orange', 'orange', 'purple', 'purple', 'white', 'white', 'gold', 'gold', 'brown', 'brown', 'pink', 'pink'
+    ],
+    items: [
+        'book', 'book', 'tree', 'tree', 'cloud', 'cloud', 'house', 'house', 'boat', 'boat', 'person', 'person', 'pyramid', 'pyramid', 'plane', 'plane', 'light bulb', 'light bulb', 'shoe', 'shoe', 'map', 'map', 'gold coin', 'gold coin'
+    ], 
+    animals: [
+        'dog', 'dog', 'cat', 'cat', 'sheep', 'sheep', 'cow', 'cow', 'horse', 'horse', 'elephant', 'elephant', 'bunny', 'bunny', 'bird', 'bird', 'snake', 'snake', 'chicken', 'chicken', 'turtle', 'turtle', 'fish', 'fish', 'bear', 'bear'
     ]
-}
+};
 
 var textMatches = [
     'blue', 'blue', 'red', 'red', 'green', 'green', 'yellow', 'yellow', 'black', 'black', 'gray', 'gray', 'orange', 'orange', 'purple', 'purple', 'white', 'white', 'gold', 'gold', 'brown', 'brown', 'pink', 'pink'
 ];
 // This is going to be deleted once game is fully functional
 
-var foodMatches = [
-    'pizza', 'pizza', 'fries', 'fries', 'ice cream', 'ice cream', 'sushi', 'sushi', 'taco', 'taco', 'salad', 'salad', 'apple', 'apple', 'burger', 'burger', 'cookie', 'cookie', 'hot dog', 'hot dog', 'donut', 'donut'
-];
-// for these categories would I just pass an image source as each array item?
+// var foodMatches = [
+//     'pizza', 'pizza', 'fries', 'fries', 'ice cream', 'ice cream', 'sushi', 'sushi', 'taco', 'taco', 'salad', 'salad', 'apple', 'apple', 'burger', 'burger', 'cookie', 'cookie', 'hot dog', 'hot dog', 'donut', 'donut'
+// ];
+// // for these categories would I just pass an image source as each array item?
 
-var sportsMatches = [
-    'baseball', 'baseball', 'basketball', 'basketball', 'hockey stick', 'hockey stick', 'tennis ball', 'tennis ball', 'soccer ball', 'soccer ball', 'golf club', 'golf club', 'racket', 'racket', '8 ball', '8 ball', 'football', 'football'
-];
+// var sportsMatches = [
+//     'baseball', 'baseball', 'basketball', 'basketball', 'hockey stick', 'hockey stick', 'tennis ball', 'tennis ball', 'soccer ball', 'soccer ball', 'golf club', 'golf club', 'racket', 'racket', '8 ball', '8 ball', 'football', 'football'
+// ];
 
-var colorMatches = [
-    'blue', 'blue', 'red', 'red', 'green', 'green', 'yellow', 'yellow', 'black', 'black', 'gray', 'gray', 'orange', 'orange', 'purple', 'purple', 'white', 'white', 'gold', 'gold', 'brown', 'brown', 'pink', 'pink'
-];
+// var colorMatches = [
+//     'blue', 'blue', 'red', 'red', 'green', 'green', 'yellow', 'yellow', 'black', 'black', 'gray', 'gray', 'orange', 'orange', 'purple', 'purple', 'white', 'white', 'gold', 'gold', 'brown', 'brown', 'pink', 'pink'
+// ];
 
-var itemMatches = [
-    'book', 'book', 'tree', 'tree', 'cloud', 'cloud', 'house', 'house', 'boat', 'boat', 'person', 'person', 'pyramid', 'pyramid', 'plane', 'plane', 'light bulb', 'light bulb', 'shoe', 'shoe', 'map', 'map', 'gold coin', 'gold coin'
-];
+// var itemMatches = [
+//     'book', 'book', 'tree', 'tree', 'cloud', 'cloud', 'house', 'house', 'boat', 'boat', 'person', 'person', 'pyramid', 'pyramid', 'plane', 'plane', 'light bulb', 'light bulb', 'shoe', 'shoe', 'map', 'map', 'gold coin', 'gold coin'
+// ];
 
-var animalMatches = [
-    'dog', 'dog', 'cat', 'cat', 'sheep', 'sheep', 'cow', 'cow', 'horse', 'horse', 'elephant', 'elephant', 'bunny', 'bunny', 'bird', 'bird', 'snake', 'snake', 'chicken', 'chicken', 'turtle', 'turtle', 'fish', 'fish', 'bear', 'bear'
-];
+// var animalMatches = [
+//     'dog', 'dog', 'cat', 'cat', 'sheep', 'sheep', 'cow', 'cow', 'horse', 'horse', 'elephant', 'elephant', 'bunny', 'bunny', 'bird', 'bird', 'snake', 'snake', 'chicken', 'chicken', 'turtle', 'turtle', 'fish', 'fish', 'bear', 'bear'
+// ];
 
 // Ideally have at least 4 or 5 categories (4 or 5 other arrays) that would
 // Be randomly assigned to div's if the user had clicked that array's category
@@ -103,10 +113,9 @@ function checkMatch () {
         //  Add points to the active player?
     }
     else {
-        alert('no match');
         //  Re-hide those two divs that were checked (slowly rehide them)
-        $click1.find('p').hide(); 
-        $click2.find('p').hide(); 
+        $click1.find('p').hide(3000); 
+        $click2.find('p').hide(3000); 
     }
 
     $click1 = null;
@@ -165,12 +174,8 @@ $squares.on('click', function () {
 
 
 
-
-
-
-
-
-
 $('li').on('click', function() {
     selectedCategory = $(this).data('category')
 })
+
+
