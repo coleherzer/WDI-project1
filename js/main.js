@@ -29,9 +29,9 @@ function randomSquare (n) {
 var $body = $('body');
 
 function startGame () {
-    textMatches.forEach(function () {
+    for (var i = 0; i < textMatches.length; i++) {
         var $newValue = $("<p class='new-value'>");
-        $newValue.text(textMatches[randomSquare(24)]);
+        $newValue.text(textMatches[i]);
         // while random square has content
             // find another random square
         var randomIndex = randomSquare(50)       
@@ -41,10 +41,8 @@ function startGame () {
         };
         $squares.eq(randomIndex).append($newValue);
         $( "p.new-value" ).hide(); 
-    })
+    }
 }; 
-
-// startGame(); 
 
 var $play = $('#play'); 
 
