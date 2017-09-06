@@ -23,11 +23,6 @@ var cards = {
     ]
 };
 
-// Ideally have at least 4 or 5 categories (4 or 5 other arrays) that would
-// Be randomly assigned to div's if the user had clicked that array's category
-// Categories to include: colors, sports, text?, food, emojis?,
-// items? (match two books, match two chairs... etc), 
-
 // Would then need a button or something to ask the user what category they would like
 
 
