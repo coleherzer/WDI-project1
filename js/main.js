@@ -2,6 +2,7 @@ var $grid = $('#game-grid');
 $grid.hide(); 
 
 var $squares = $('.square');
+
 var selectedCategory = null
 
 var cards = {
@@ -21,32 +22,6 @@ var cards = {
         'dog', 'dog', 'cat', 'cat', 'sheep', 'sheep', 'cow', 'cow', 'horse', 'horse', 'elephant', 'elephant', 'bunny', 'bunny', 'bird', 'bird', 'snake', 'snake', 'chicken', 'chicken', 'turtle', 'turtle', 'fish', 'fish', 'bear', 'bear'
     ]
 };
-
-var textMatches = [
-    'blue', 'blue', 'red', 'red', 'green', 'green', 'yellow', 'yellow', 'black', 'black', 'gray', 'gray', 'orange', 'orange', 'purple', 'purple', 'white', 'white', 'gold', 'gold', 'brown', 'brown', 'pink', 'pink'
-];
-// This is going to be deleted once game is fully functional
-
-// var foodMatches = [
-//     'pizza', 'pizza', 'fries', 'fries', 'ice cream', 'ice cream', 'sushi', 'sushi', 'taco', 'taco', 'salad', 'salad', 'apple', 'apple', 'burger', 'burger', 'cookie', 'cookie', 'hot dog', 'hot dog', 'donut', 'donut'
-// ];
-// // for these categories would I just pass an image source as each array item?
-
-// var sportsMatches = [
-//     'baseball', 'baseball', 'basketball', 'basketball', 'hockey stick', 'hockey stick', 'tennis ball', 'tennis ball', 'soccer ball', 'soccer ball', 'golf club', 'golf club', 'racket', 'racket', '8 ball', '8 ball', 'football', 'football'
-// ];
-
-// var colorMatches = [
-//     'blue', 'blue', 'red', 'red', 'green', 'green', 'yellow', 'yellow', 'black', 'black', 'gray', 'gray', 'orange', 'orange', 'purple', 'purple', 'white', 'white', 'gold', 'gold', 'brown', 'brown', 'pink', 'pink'
-// ];
-
-// var itemMatches = [
-//     'book', 'book', 'tree', 'tree', 'cloud', 'cloud', 'house', 'house', 'boat', 'boat', 'person', 'person', 'pyramid', 'pyramid', 'plane', 'plane', 'light bulb', 'light bulb', 'shoe', 'shoe', 'map', 'map', 'gold coin', 'gold coin'
-// ];
-
-// var animalMatches = [
-//     'dog', 'dog', 'cat', 'cat', 'sheep', 'sheep', 'cow', 'cow', 'horse', 'horse', 'elephant', 'elephant', 'bunny', 'bunny', 'bird', 'bird', 'snake', 'snake', 'chicken', 'chicken', 'turtle', 'turtle', 'fish', 'fish', 'bear', 'bear'
-// ];
 
 // Ideally have at least 4 or 5 categories (4 or 5 other arrays) that would
 // Be randomly assigned to div's if the user had clicked that array's category
@@ -70,8 +45,6 @@ function shuffle(array) {
     return array;
 };
 
-shuffle(textMatches); 
-
 function randomSquare (n) {
     return Math.floor(Math.random() * n);
 };
@@ -79,11 +52,11 @@ function randomSquare (n) {
 var $body = $('body');
 
 function startGame (category) {
-    // for (var i = 0; i < cards[category].length; i++) {
-    for (var i = 0; i < textMatches.length; i++) {
+    for (var i = 0; i < cards[category].length; i++) {
+    // for (var i = 0; i < textMatches.length; i++) {
         var $newValue = $("<p class='new-value'>");
-        // $newValue.text(cards[category][i]);
-        $newValue.text(textMatches[i]);
+        $newValue.text(cards[category][i]);
+        // $newValue.text(textMatches[i]);
         // while random square has content
             // find another random square
         var randomIndex = randomSquare(50)       
@@ -91,16 +64,17 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        $( "p.new-value" ).hide(); 
+        // $( "p.new-value" ).hide(); 
     }
 }; 
 
 var $play = $('#play'); 
 
 $play.on('click', function () {
+    $grid.show(); 
     if ($squares.text() == '') {
-        // startGame(selectedCategory); 
-        startGame(); 
+        startGame(selectedCategory); 
+        // startGame(); 
     }
     // add a reset function to the play button
     // Will add more functionality
@@ -134,7 +108,6 @@ $squares.on('click', function () {
             $click1.text('Empty :(');
             $click1.off();
         }
-        console.log($click1); 
     }
     else if ($click1 !== undefined && $click1[0] !== $(this)[0]) {
         $click2 = $(this); 
@@ -143,7 +116,6 @@ $squares.on('click', function () {
             $click2.text('Empty :(');
             $click2.off();
         }
-        console.log($click2);   
         checkMatch();    
     }
 });
@@ -170,11 +142,14 @@ $squares.on('click', function () {
 // Make cool animations?
 // Style buttons
 
+// Need to add more items to each category array so there arent so many empty squares
+
 // If you have time, add the ability for the user to play single player
 
 
 
 $('li').on('click', function() {
+    $grid.show(); 
     selectedCategory = $(this).data('category')
 })
 
