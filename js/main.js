@@ -7,7 +7,7 @@ var selectedCategory = null
 
 var cards = {
     food: [
-        'pizza', 'pizza', 'fries', 'fries', 'ice cream', 'ice cream', 'sushi', 'sushi', 'taco', 'taco', 'salad', 'salad', 'apple', 'apple', 'burger', 'burger', 'cookie', 'cookie', 'hot dog', 'hot dog', 'donut', 'donut'
+        'images/food/pizza.jpeg', 'images/food/pizza.jpeg', 'images/food/fries.png', 'images/food/fries.png', 'images/food/ice-cream.png', 'images/food/ice-cream.png', 'images/food/sushi.jpeg', 'images/food/sushi.jpeg', 'images/food/taco.jpeg', 'images/food/taco.jpeg', 'images/food/salad.jpeg', 'images/food/salad.jpeg', 'images/food/apple.jpeg', 'images/food/apple.jpeg', 'images/food/burger.jpeg', 'images/food/burger.jpeg', 'images/food/cookie.jpeg', 'images/food/cookie.jpeg', 'images/food/hot-dog.png', 'images/food/hot-dog.png', 'images/food/donut.jpeg', 'images/food/donut.jpeg', 'images/food/fried-chicken.jpeg', 'images/food/fried-chicken.jpeg'
     ],
     sports: [
         'images/sports/baseball.jpeg', 'images/sports/baseball.jpeg', 'images/sports/basketball.jpeg', 'images/sports/basketball.jpeg', 'images/sports/hockey-stick.png', 'images/sports/hockey-stick.png', 'images/sports/tennis-ball.jpeg', 'images/sports/tennis-ball.jpeg', 'images/sports/soccer-ball.png', 'images/sports/soccer-ball.png', 'images/sports/golf-club.png', 'images/sports/golf-club.png', 'images/sports/racket.png', 'images/sports/racket.png', 'images/sports/8ball.jpeg', 'images/sports/8ball.jpeg', 'images/sports/football.jpeg', 'images/sports/football.jpeg', 'images/sports/ping-pong.jpeg', 'images/sports/ping-pong.jpeg', 'images/sports/bowling.png', 'images/sports/bowling.png', 'images/sports/volleyball.jpeg', 'images/sports/volleyball.jpeg'
@@ -79,7 +79,6 @@ function startGame (category) {
             // find another random square
         var randomIndex = randomSquare(50)       
         while($squares.eq(randomIndex).find('src') == true) {
-            // Left off here in trying to make sure two images arent assigned to same div
 
             randomIndex = randomSquare(50)
         };
