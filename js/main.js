@@ -23,7 +23,17 @@ var cards = {
     ]
 };
 
+var bombs = [
+    'bomb', 'bomb', 'bomb'
+];
 // Would then need a button or something to ask the user what category they would like
+
+// var player1 = {};
+// var player2 = {}; 
+
+var $currentScore = $('#score');
+
+var $score = 0;
 
 
 function shuffle(array) {
@@ -47,11 +57,23 @@ function randomSquare (n) {
 var $body = $('body');
 
 function startGame (category) {
+    for (var i = 0; i < bombs.length; i++) {
+        var $newValue = $("<p class='bomb'>");
+        $newValue.text(bombs[i]);
+        var randomIndex = randomSquare(50)       
+        while($squares.eq(randomIndex).text() != '') {
+            randomIndex = randomSquare(50)
+        };
+        $squares.eq(randomIndex).append($newValue);
+        $( "p.bomb" ).hide(); 
+        $('p.bomb').parent().on('click', function () {
+            $currentScore.text('Score: ' + ($score - 5));
+            $score = $score - 5;
+        })
+    }
     for (var i = 0; i < cards[category].length; i++) {
-    // for (var i = 0; i < textMatches.length; i++) {
         var $newValue = $("<p class='new-value'>");
         $newValue.text(cards[category][i]);
-        // $newValue.text(textMatches[i]);
         // while random square has content
             // find another random square
         var randomIndex = randomSquare(50)       
@@ -59,7 +81,7 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        // $( "p.new-value" ).hide(); 
+        $( "p.new-value" ).hide(); 
     }
 }; 
 
@@ -76,9 +98,15 @@ $play.on('click', function () {
 });
 
 function checkMatch () {
-    if ($click1.text() == $click2.text() && $click1.text() !== '' && $click2.text() !== '') {
+    if ($click1.text() == $click2.text() && ($click1.text() !== '' && $click2.text() !== '')) {
         $click1.off()
         $click2.off()
+        for (i = 0; i < 1; i ++ ) {
+            if ($click1.text() == $click2.text() && $click1.text() !== 'Empty' && $click2.text() !== 'Empty' && $click1.text() !== 'bomb' && $click2.text() !== 'bomb') {
+                $currentScore.text('Score: ' + ($score + 10));
+                $score = $score + 10;
+            }
+        } 
         //  Add points to the active player?
     }
     else {
@@ -100,7 +128,7 @@ $squares.on('click', function () {
         $click1 = $(this); 
         if ($click1.text() == '') {
             $click1.css({background: 'white'});
-            $click1.text('Empty :(');
+            $click1.text('Empty');
             $click1.off();
         }
     }
@@ -108,7 +136,7 @@ $squares.on('click', function () {
         $click2 = $(this); 
         if ($click2.text() == '') {
             $click2.css({background: 'white'});
-            $click2.text('Empty :(');
+            $click2.text('Empty');
             $click2.off();
         }
         checkMatch();    
