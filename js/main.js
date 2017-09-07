@@ -102,6 +102,7 @@ $play.on('click', function () {
     $grid.show(); 
     if ($squares.text() == '') {
         startGame(selectedCategory); 
+        theIntervalId = setInterval(timer, 1000);
     }
     // add a reset function to the play button
     // Will add more functionality
@@ -182,7 +183,27 @@ $('li').on('click', function() {
     selectedCategory = $(this).data('category')
 })
 
+var theIntervalId;
 
+var $counter = $('#time');
+
+var seconds = 60
+
+$counter.text('Time: ' + seconds + ' seconds'); 
+
+
+function timer () {
+    seconds = seconds - 1;
+    $counter.text('Time: '+ seconds + ' seconds');
+    if (seconds < 0) {
+        clearInterval( theIntervalId )
+        alert("Time's Up!");
+        $counter.text('Time: 0')
+        // switchPlayer();
+        // checkWinner(); 
+        // reset(); 
+    }
+};
 
 
 // Bugs/Questions:
@@ -191,5 +212,5 @@ $('li').on('click', function() {
 // Happens when you click the matched div as it is slowly returning to hide
 // Bug in that matching bombs deducts like 25 points (keep it?)
 
-// Ask about the error message im getting that refers to my jquery file?
+// bug where if someone clicks play while the timer is already running, page freezes
 

@@ -54,3 +54,8 @@ h3 {
     display: inline-block; 
     margin: 20px;
 }
+
+#time {
+    display: block; 
+    padding: 0; 
+}
