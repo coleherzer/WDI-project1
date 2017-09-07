@@ -95,7 +95,7 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        $( "img.bomb" ).hide(); 
+        // $( "img.bomb" ).hide(); 
         $('img.bomb').parent().on('click', function () {
             if ($currentPlayerScore[0] == $('#p1score')[0]) {
                 $currentPlayerScore.text('Player 1 Score: ' + (currentPlayer.score - 2));
@@ -116,11 +116,11 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        $( "img.new-value" ).hide(); 
+        // $( "img.new-value" ).hide(); 
     }
 }; 
 
-var $play = $('#play'); 
+var $play = $('#start-game'); 
 
 $play.on('click', function () {
     $grid.show(); 
@@ -185,19 +185,24 @@ $squares.on('click', function () {
     }
 });
 
-function reset () {
+function gridReset () {
+    $squares.html('');
+};
 
-}
+function checkWinner () {
+    if (player1.score > player2.score) {
+        alert('Player 1 wins');
+    }
+    else {
+        alert('Player 2 wins'); 
+    }
+};
 
 // Need a scoring system between the two players
 
-// Need a timing mechanism that counts down each players turn 
 // Bonus points/timing stops if all matches uncovered before time limit
 
 // Need to declare the winner either based on # of matches or points or whatever
-
-// Add a bomb icon to two or three random divs when the game starts
-// A player that clicks on the bomb will be deducted points
 
 // Make sure the game looks really nice
 // Give the grid some special styles such as making the borders look like wood beams or w/e
@@ -218,13 +223,9 @@ $('li').on('click', function() {
 })
 
 var theIntervalId;
-
 var $counter = $('#time');
-
 var seconds = 60
-
 $counter.text('Time: ' + seconds + ' seconds'); 
-
 
 function timer () {
     seconds = seconds - 1;
@@ -233,8 +234,11 @@ function timer () {
         clearInterval( theIntervalId )
         alert("Time's Up!");
         $counter.text('Time: 0')
+        gridReset(); 
         switchPlayer();
-        // checkWinner(); 
+        if (player2.score !== 0) {
+            checkWinner(); 
+        }
         // reset(); 
     }
 };
@@ -247,4 +251,6 @@ function timer () {
 // Bug in that matching bombs deducts like 25 points (keep it?)
 
 // bug where if someone clicks play while the timer is already running, page freezes
+// Bug where sometimes the click to start the game counts as the first click I think
+// so it automatically considers the first click on the board not a match
 
