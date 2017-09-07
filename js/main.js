@@ -59,10 +59,9 @@ var $body = $('body');
 
 function startGame (category) {
     for (var i = 0; i < bombs.length; i++) {
-        var $newValue = $("<img class='bomb'>");
-        $newValue.attr("src", bombs[i]);
+        var $newValue = $("<img>").addClass('bomb').attr("src", bombs[i]);
         var randomIndex = randomSquare(50)       
-        while($squares.eq(randomIndex).text() != '') {
+        while($squares.eq(randomIndex).html()) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
@@ -73,13 +72,11 @@ function startGame (category) {
         })
     }
     for (var i = 0; i < cards[category].length; i++) {
-        var $newValue = $("<img class='new-value'>");
-        $newValue.attr("src", cards[category][i]);
+        var $newValue = $("<img>").addClass('new-value').attr("src", cards[category][i]);
         // while random square has content
             // find another random square
         var randomIndex = randomSquare(50)       
-        while($squares.eq(randomIndex).find('src') == true) {
-
+        while($squares.eq(randomIndex).html()) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
@@ -100,11 +97,11 @@ $play.on('click', function () {
 });
 
 function checkMatch () {
-    if ($click1.text() == $click2.text() && ($click1.text() !== '' && $click2.text() !== '')) {
+    if ($click1.html() == $click2.html() && ($click1.html() !== '' && $click2.html() !== '')) {
         $click1.off()
         $click2.off()
         for (i = 0; i < 1; i ++ ) {
-            if ($click1.text() == $click2.text() && $click1.text() !== 'Empty' && $click2.text() !== 'Empty' && $click1.text() !== 'bomb' && $click2.text() !== 'bomb') {
+            if ($click1.html() == $click2.html() && $click1.text() !== 'Empty' && $click2.text() !== 'Empty' && $click1.find('img src') !== 'images/bombs/bomb.gif' && $click2.find('img src') !== 'images/bombs/bomb.gif') {
                 $currentScore.text('Score: ' + ($score + 10));
                 $score = $score + 10;
                 $click1.show();
@@ -114,7 +111,6 @@ function checkMatch () {
         //  Add points to the active player?
     }
     else {
-        //  Re-hide those two divs that were checked (slowly rehide them)
         $click1.find('img').hide(3000); 
         $click2.find('img').hide(3000); 
     }
@@ -130,7 +126,7 @@ $squares.on('click', function () {
     $(this).find('img').show(); 
     if ($click1 == undefined) {
         $click1 = $(this); 
-        if ($click1.text() == '') {
+        if ($click1.html() == '') {
             $click1.css({background: 'white'});
             $click1.text('Empty');
             $click1.off();
@@ -138,7 +134,7 @@ $squares.on('click', function () {
     }
     else if ($click1 !== undefined && $click1[0] !== $(this)[0]) {
         $click2 = $(this); 
-        if ($click2.text() == '') {
+        if ($click2.html() == '') {
             $click2.css({background: 'white'});
             $click2.text('Empty');
             $click2.off();
