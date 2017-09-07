@@ -1,6 +1,10 @@
 body {
     text-align: center; 
-    background: #03E7F4; 
+    /* background-image: url("../images/background/match-background.jpeg");
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    width: 100%;
+    color: white;  */
 }
 
 #game-grid {

@@ -62,6 +62,7 @@ function shuffle(array) {
     }
     return array;
 };
+// May not end up needing this function
 
 function randomSquare (n) {
     return Math.floor(Math.random() * n);
