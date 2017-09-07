@@ -67,8 +67,8 @@ function startGame (category) {
         $squares.eq(randomIndex).append($newValue);
         $( "p.bomb" ).hide(); 
         $('p.bomb').parent().on('click', function () {
-            $currentScore.text('Score: ' + ($score - 5));
-            $score = $score - 5;
+            $currentScore.text('Score: ' + ($score - 2));
+            $score = $score - 2;
         })
     }
     for (var i = 0; i < cards[category].length; i++) {
@@ -105,6 +105,8 @@ function checkMatch () {
             if ($click1.text() == $click2.text() && $click1.text() !== 'Empty' && $click2.text() !== 'Empty' && $click1.text() !== 'bomb' && $click2.text() !== 'bomb') {
                 $currentScore.text('Score: ' + ($score + 10));
                 $score = $score + 10;
+                $click1.show();
+                $click2.show(); 
             }
         } 
         //  Add points to the active player?
@@ -143,11 +145,6 @@ $squares.on('click', function () {
     }
 });
 
-// Issue with above code is that on the first click, 
-// the variable $click2 is assigned to the same value as $click1... 
-// $click2 changes when the second click occurs, but since it starts off set to the same as
-// $click1, the check runs it as true before the second click occurs
-
 // Need a scoring system between the two players
 
 // Need a timing mechanism that counts down each players turn 
@@ -177,3 +174,8 @@ $('li').on('click', function() {
 })
 
 
+
+// Current bug in matched divs... 
+// Sometimes, one of the two matched divs will be stuck on hide()... 
+// Happens when you click the matched div as it is slowly returning to hide
+// Bug in that matching bombs deducts like 25 points (keep it?)
