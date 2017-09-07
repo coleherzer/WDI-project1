@@ -28,17 +28,6 @@ var bombs = [
     'images/bombs/bomb.gif', 'images/bombs/bomb.gif', 'images/bombs/bomb.gif'
 ];
 
-// var game = {
-//     players: [{
-//         player1: {
-//             score: 0
-//         },
-//         player2: {
-//             score: 0
-//         }
-//     }],
-// };
-
 var player1 = {
     score: 0
 };
@@ -198,11 +187,7 @@ function checkWinner () {
     }
 };
 
-// Need a scoring system between the two players
-
 // Bonus points/timing stops if all matches uncovered before time limit
-
-// Need to declare the winner either based on # of matches or points or whatever
 
 // Make sure the game looks really nice
 // Give the grid some special styles such as making the borders look like wood beams or w/e
@@ -239,7 +224,6 @@ function timer () {
         if (player2.score !== 0) {
             checkWinner(); 
         }
-        // reset(); 
     }
 };
 
