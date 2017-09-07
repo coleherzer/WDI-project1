@@ -27,10 +27,22 @@ var cards = {
 var bombs = [
     'images/bombs/bomb.gif', 'images/bombs/bomb.gif', 'images/bombs/bomb.gif'
 ];
-// Would then need a button or something to ask the user what category they would like
 
-// var player1 = {};
-// var player2 = {}; 
+var players = {
+    player1:{}, 
+    player2:{} 
+};
+
+var currentPlayer = players[0];
+
+function switchPlayer () {
+    if (currentPlayer === players[0]) {
+        currentPlayer = players[1];
+    }
+    else {
+        currentPlayer = players[0];
+    }
+};
 
 var $currentScore = $('#score');
 
