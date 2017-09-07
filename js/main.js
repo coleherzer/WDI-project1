@@ -25,7 +25,7 @@ var cards = {
 };
 
 var bombs = [
-    'bomb', 'bomb', 'bomb'
+    'images/bombs/bomb.gif', 'images/bombs/bomb.gif', 'images/bombs/bomb.gif'
 ];
 // Would then need a button or something to ask the user what category they would like
 
@@ -59,15 +59,15 @@ var $body = $('body');
 
 function startGame (category) {
     for (var i = 0; i < bombs.length; i++) {
-        var $newValue = $("<p class='bomb'>");
-        $newValue.text(bombs[i]);
+        var $newValue = $("<img class='bomb'>");
+        $newValue.attr("src", bombs[i]);
         var randomIndex = randomSquare(50)       
         while($squares.eq(randomIndex).text() != '') {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        $( "p.bomb" ).hide(); 
-        $('p.bomb').parent().on('click', function () {
+        // $( "img.bomb" ).hide(); 
+        $('img.bomb').parent().on('click', function () {
             $currentScore.text('Score: ' + ($score - 2));
             $score = $score - 2;
         })
