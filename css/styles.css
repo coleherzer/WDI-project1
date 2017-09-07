@@ -4,15 +4,20 @@ body {
 }
 
 #game-grid {
-    width: 70%;
+    width: 82%;
     margin: 0 auto; 
 }
 
 .square {
-    height: 75px;
-    width: 75px; 
+    height: 90px;
+    width: 90px; 
     border: 1px solid black; 
     float: left; 
+}
+
+img.new-value {
+    height: 90px;
+    width: 90px; 
 }
 
 ul {

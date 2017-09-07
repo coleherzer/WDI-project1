@@ -10,17 +10,18 @@ var cards = {
         'pizza', 'pizza', 'fries', 'fries', 'ice cream', 'ice cream', 'sushi', 'sushi', 'taco', 'taco', 'salad', 'salad', 'apple', 'apple', 'burger', 'burger', 'cookie', 'cookie', 'hot dog', 'hot dog', 'donut', 'donut'
     ],
     sports: [
-        'baseball', 'baseball', 'basketball', 'basketball', 'hockey stick', 'hockey stick', 'tennis ball', 'tennis ball', 'soccer ball', 'soccer ball', 'golf club', 'golf club', 'racket', 'racket', '8 ball', '8 ball', 'football', 'football'
+        'images/sports/baseball.jpeg', 'images/sports/baseball.jpeg', 'images/sports/basketball.jpeg', 'images/sports/basketball.jpeg', 'images/sports/hockey-stick.png', 'images/sports/hockey-stick.png', 'images/sports/tennis-ball.jpeg', 'images/sports/tennis-ball.jpeg', 'images/sports/soccer-ball.png', 'images/sports/soccer-ball.png', 'images/sports/golf-club.png', 'images/sports/golf-club.png', 'images/sports/racket.png', 'images/sports/racket.png', 'images/sports/8ball.jpeg', 'images/sports/8ball.jpeg', 'images/sports/football.jpeg', 'images/sports/football.jpeg', 'images/sports/ping-pong.jpeg', 'images/sports/ping-pong.jpeg', 'images/sports/bowling.png', 'images/sports/bowling.png', 'images/sports/volleyball.jpeg', 'images/sports/volleyball.jpeg'
     ],
     colors: [
-        'blue', 'blue', 'red', 'red', 'green', 'green', 'yellow', 'yellow', 'black', 'black', 'gray', 'gray', 'orange', 'orange', 'purple', 'purple', 'white', 'white', 'gold', 'gold', 'brown', 'brown', 'pink', 'pink'
+        'images/colors/blue.png', 'images/colors/blue.png', 'images/colors/red.png', 'images/colors/red.png', 'images/colors/green.png', 'images/colors/green.png', 'images/colors/yellow.png', 'images/colors/yellow.png', 'images/colors/black.png', 'images/colors/black.png', 'images/colors/gray.png', 'images/colors/gray.png', 'images/colors/orange.png', 'images/colors/orange.png', 'images/colors/purple.jpeg', 'images/colors/purple.jpeg', 'images/colors/white.jpeg', 'images/colors/white.jpeg', 'images/colors/gold.jpeg', 'images/colors/gold.jpeg', 'images/colors/brown.png', 'images/colors/brown.png', 'images/colors/pink.png', 'images/colors/pink.png'
     ],
     items: [
-        'book', 'book', 'tree', 'tree', 'cloud', 'cloud', 'house', 'house', 'boat', 'boat', 'person', 'person', 'pyramid', 'pyramid', 'plane', 'plane', 'light bulb', 'light bulb', 'shoe', 'shoe', 'map', 'map', 'gold coin', 'gold coin'
+        'images/items/book.jpeg', 'images/items/book.jpeg', 'images/items/tree.jpeg', 'images/items/tree.jpeg', 'images/items/cloud.png', 'images/items/cloud.png', 'images/items/house.png', 'images/items/house.png', 'images/items/boat.jpeg', 'images/items/boat.jpeg', 'images/items/person.jpeg', 'images/items/person.jpeg', 'images/items/pyramid.jpeg', 'images/items/pyramid.jpeg', 'images/items/plane.jpeg', 'images/items/plane.jpeg', 'images/items/light-bulb.jpeg', 'images/items/light-bulb.jpeg', 'images/items/shoe.png', 'images/items/shoe.png', 'images/items/map.png', 'images/items/map.png', 'images/items/gold-coin.jpeg', 'images/items/gold-coin.jpeg'
     ], 
     animals: [
-        'dog', 'dog', 'cat', 'cat', 'sheep', 'sheep', 'cow', 'cow', 'horse', 'horse', 'elephant', 'elephant', 'bunny', 'bunny', 'bird', 'bird', 'snake', 'snake', 'chicken', 'chicken', 'turtle', 'turtle', 'fish', 'fish', 'bear', 'bear'
+        'images/animals/dog.jpeg', 'images/animals/dog.jpeg', 'images/animals/cat.jpeg', 'images/animals/cat.jpeg', 'images/animals/sheep.jpeg', 'images/animals/sheep.jpeg', 'images/animals/cow.jpeg', 'images/animals/cow.jpeg', 'images/animals/horse.jpeg', 'images/animals/horse.jpeg', 'images/animals/elephant.png', 'images/animals/elephant.png', 'images/animals/bunny.jpeg', 'images/animals/bunny.jpeg', 'images/animals/penguin.png', 'images/animals/penguin.png', 'images/animals/snake.jpeg', 'images/animals/snake.jpeg', 'images/animals/chicken.png', 'images/animals/chicken.png', 'images/animals/turtle.jpeg', 'images/animals/turtle.jpeg', 'images/animals/fish.png', 'images/animals/fish.png', 'images/animals/bear.png', 'images/animals/bear.png'
     ]
+    // Add a heroes category?
 };
 
 var bombs = [
@@ -72,16 +73,18 @@ function startGame (category) {
         })
     }
     for (var i = 0; i < cards[category].length; i++) {
-        var $newValue = $("<p class='new-value'>");
-        $newValue.text(cards[category][i]);
+        var $newValue = $("<img class='new-value'>");
+        $newValue.attr("src", cards[category][i]);
         // while random square has content
             // find another random square
         var randomIndex = randomSquare(50)       
-        while($squares.eq(randomIndex).text() != '') {
+        while($squares.eq(randomIndex).find('src') == true) {
+            // Left off here in trying to make sure two images arent assigned to same div
+
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        $( "p.new-value" ).hide(); 
+        // $( "img.new-value" ).hide(); 
     }
 }; 
 
@@ -113,8 +116,8 @@ function checkMatch () {
     }
     else {
         //  Re-hide those two divs that were checked (slowly rehide them)
-        $click1.find('p').hide(3000); 
-        $click2.find('p').hide(3000); 
+        $click1.find('img').hide(3000); 
+        $click2.find('img').hide(3000); 
     }
 
     $click1 = null;
@@ -125,7 +128,7 @@ var $click1;
 var $click2; 
 
 $squares.on('click', function () {
-    $(this).find('p').show(); 
+    $(this).find('img').show(); 
     if ($click1 == undefined) {
         $click1 = $(this); 
         if ($click1.text() == '') {
@@ -175,7 +178,12 @@ $('li').on('click', function() {
 
 
 
+
+// Bugs/Questions:
 // Current bug in matched divs... 
 // Sometimes, one of the two matched divs will be stuck on hide()... 
 // Happens when you click the matched div as it is slowly returning to hide
 // Bug in that matching bombs deducts like 25 points (keep it?)
+
+// Ask about the error message im getting that refers to my jquery file?
+
