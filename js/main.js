@@ -28,25 +28,42 @@ var bombs = [
     'images/bombs/bomb.gif', 'images/bombs/bomb.gif', 'images/bombs/bomb.gif'
 ];
 
-var players = {
-    player1:{}, 
-    player2:{} 
+// var game = {
+//     players: [{
+//         player1: {
+//             score: 0
+//         },
+//         player2: {
+//             score: 0
+//         }
+//     }],
+// };
+
+var player1 = {
+    score: 0
 };
 
-var currentPlayer = players[0];
+var player2 = {
+    score: 0
+};
+
+var currentPlayer = player1; 
+var $currentPlayerScore = $('#p1score');
 
 function switchPlayer () {
-    if (currentPlayer === players[0]) {
-        currentPlayer = players[1];
+    if (currentPlayer === player1) {
+        currentPlayer = player2;
+        $currentPlayerScore = $('#p2score');
+        seconds = 60
+        $counter.text('Time: ' + seconds + ' seconds')
     }
     else {
-        currentPlayer = players[0];
+        currentPlayer = player1;
+        $currentPlayerScore = $('#p1score');
+        seconds = 60
+        $counter.text('Time: ' + seconds + ' seconds')
     }
 };
-
-var $currentScore = $('#score');
-
-var $score = 0;
 
 
 function shuffle(array) {
@@ -80,8 +97,14 @@ function startGame (category) {
         $squares.eq(randomIndex).append($newValue);
         $( "img.bomb" ).hide(); 
         $('img.bomb').parent().on('click', function () {
-            $currentScore.text('Score: ' + ($score - 2));
-            $score = $score - 2;
+            if ($currentPlayerScore[0] == $('#p1score')[0]) {
+                $currentPlayerScore.text('Player 1 Score: ' + (currentPlayer.score - 2));
+                currentPlayer.score = currentPlayer.score - 2;
+            }
+            else {
+                $currentPlayerScore.text('Player 2 Score: ' + (currentPlayer.score - 2));
+                currentPlayer.score = currentPlayer.score - 2;
+            }
         })
     }
     for (var i = 0; i < cards[category].length; i++) {
@@ -115,8 +138,14 @@ function checkMatch () {
         $click2.off()
         for (i = 0; i < 1; i ++ ) {
             if ($click1.html() == $click2.html() && $click1.text() !== 'Empty' && $click2.text() !== 'Empty' && $click1.find('img src') !== 'images/bombs/bomb.gif' && $click2.find('img src') !== 'images/bombs/bomb.gif') {
-                $currentScore.text('Score: ' + ($score + 10));
-                $score = $score + 10;
+                if ($currentPlayerScore[0] == $('#p1score')[0]) {
+                    $currentPlayerScore.text('Player 1 Score: ' + (currentPlayer.score + 10));
+                    currentPlayer.score = currentPlayer.score + 10;
+                }
+                else {
+                    $currentPlayerScore.text('Player 2 Score: ' + (currentPlayer.score + 10));
+                    currentPlayer.score = currentPlayer.score + 10;
+                }
                 $click1.show();
                 $click2.show(); 
             }
@@ -155,6 +184,10 @@ $squares.on('click', function () {
         checkMatch();    
     }
 });
+
+function reset () {
+
+}
 
 // Need a scoring system between the two players
 
@@ -200,7 +233,7 @@ function timer () {
         clearInterval( theIntervalId )
         alert("Time's Up!");
         $counter.text('Time: 0')
-        // switchPlayer();
+        switchPlayer();
         // checkWinner(); 
         // reset(); 
     }
