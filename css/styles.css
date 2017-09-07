@@ -22,4 +22,34 @@ img {
 ul {
     list-style: none; 
     padding: 0; 
+    margin: 5px; 
+}
+
+li {
+    display: inline; 
+    margin: 20px; 
+    font-size: 18px; 
+}
+
+li:hover {
+    color: red; 
+}
+
+#scoring {
+    display: inline;
+}
+
+h3 {
+    display: inline; 
+    padding: 20px; 
+}
+
+#play {
+    margin: 10px auto; 
+    display: block; 
+}
+
+#categories {
+    display: inline-block; 
+    margin: 20px;
 }

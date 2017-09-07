@@ -14,7 +14,10 @@
     <h1>Match Mania</h1>
     <p>Uncover matching items before time expires!</p>
 
-    <h3 id='score'>Score: 0</h3>
+    <div id='scoring'>
+        <h3 id='p1score'>Player 1 Score: 0</h3>
+        <h3 id='p2score'>Player 2 Score: 0</h3>
+    </div>
 
     <button id='play'>Play</button>
 
@@ -71,14 +74,16 @@
         <div class='square'></div>
     </div>
     
-    <h3>Choose a Category to play!</h3>
-    <ul>
-        <li data-category="food">Food</li>
-        <li data-category="sports">Sports</li>
-        <li data-category="colors">Colors</li>
-        <li data-category="animals">Animals</li>
-        <li data-category="items">Miscelaneous</li>
-    </ul>
+    <div id='categories'>
+        <h3>Choose a Category to play!</h3>
+        <ul>
+            <li data-category="food">Food</li>
+            <li data-category="sports">Sports</li>
+            <li data-category="colors">Colors</li>
+            <li data-category="animals">Animals</li>
+            <li data-category="items">Miscelaneous</li>
+        </ul>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
