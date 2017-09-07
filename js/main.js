@@ -65,7 +65,7 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        // $( "img.bomb" ).hide(); 
+        $( "img.bomb" ).hide(); 
         $('img.bomb').parent().on('click', function () {
             $currentScore.text('Score: ' + ($score - 2));
             $score = $score - 2;
@@ -80,7 +80,7 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        // $( "img.new-value" ).hide(); 
+        $( "img.new-value" ).hide(); 
     }
 }; 
 
@@ -90,7 +90,6 @@ $play.on('click', function () {
     $grid.show(); 
     if ($squares.text() == '') {
         startGame(selectedCategory); 
-        // startGame(); 
     }
     // add a reset function to the play button
     // Will add more functionality
