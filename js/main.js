@@ -1,3 +1,4 @@
+// Javascript Variables
 var timeLimit = 30
 var theIntervalId;
 var seconds = timeLimit
@@ -38,6 +39,7 @@ var bombs = [
 
 var currentPlayer = player1; 
 
+// jQuery variables
 var $counter = $('#time');
 var $winner = $('<h1>').addClass('winner');
 var $body = $('body');
@@ -51,6 +53,7 @@ $counter.text('Time: ' + seconds + ' seconds');
 
 var $currentPlayerScore = $('#p1score');
 
+// Functions
 function switchPlayer () {
     if (currentPlayer === player1) {
         currentPlayer = player2;
@@ -75,7 +78,6 @@ function scoreReset () {
     $('#p2score').text('Player 2 Score: ' + player2.score)
 }
 
-
 function shuffle(array) {
     var m = array.length, t, i;
     // While there remain elements to shuffle…
@@ -94,8 +96,6 @@ function shuffle(array) {
 function randomSquare (n) {
     return Math.floor(Math.random() * n);
 };
-
-
 
 function startGame (category) {
     turnOnEventListeners();
