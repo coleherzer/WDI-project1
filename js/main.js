@@ -1,9 +1,17 @@
-var $grid = $('#game-grid'); 
-// $grid.hide(); 
-
-var $squares = $('.square');
-
+var timeLimit = 60
+var theIntervalId;
+var seconds = timeLimit
+var click1; 
+var click2; 
 var selectedCategory = null
+
+var player1 = {
+    score: 0
+};
+
+var player2 = {
+    score: 0
+};
 
 var cards = {
     food: [
@@ -28,29 +36,35 @@ var bombs = [
     'images/bombs/bomb.gif', 'images/bombs/bomb.gif', 'images/bombs/bomb.gif'
 ];
 
-var player1 = {
-    score: 0
-};
-
-var player2 = {
-    score: 0
-};
-
 var currentPlayer = player1; 
+
+var $counter = $('#time');
+var $winner = $('<h1>').addClass('winner');
+var $body = $('body');
+var $grid = $('#game-grid'); 
+// $grid.hide();
+var $play = $('#start-game'); 
+$play.hide(); 
+
+var $squares = $('.square');
+$counter.text('Time: ' + seconds + ' seconds');
+
 var $currentPlayerScore = $('#p1score');
 
 function switchPlayer () {
     if (currentPlayer === player1) {
         currentPlayer = player2;
         $currentPlayerScore = $('#p2score');
-        seconds = 60
+        seconds = timeLimit
         $counter.text('Time: ' + seconds + ' seconds')
+        $squares.off();
     }
     else {
         currentPlayer = player1;
         $currentPlayerScore = $('#p1score');
-        seconds = 60
+        seconds = timeLimit
         $counter.text('Time: ' + seconds + ' seconds')
+        $squares.off(); 
     }
 };
 
@@ -81,9 +95,12 @@ function randomSquare (n) {
     return Math.floor(Math.random() * n);
 };
 
-var $body = $('body');
+
 
 function startGame (category) {
+    turnOnEventListeners();
+    click1 = undefined;
+    click2 = undefined;
     for (var i = 0; i < bombs.length; i++) {
         var $newValue = $("<img>").addClass('bomb').attr("src", bombs[i]);
         var randomIndex = randomSquare(50)       
@@ -116,8 +133,7 @@ function startGame (category) {
     }
 }; 
 
-var $play = $('#start-game'); 
-$play.hide(); 
+
 
 $play.on('click', function () {
     // $grid.show(); 
@@ -125,14 +141,16 @@ $play.on('click', function () {
         startGame(selectedCategory); 
         theIntervalId = setInterval(timer, 1000);
     }
+    $play.hide()
 });
 
+
 function checkMatch () {
-    if ($click1.html() == $click2.html() && ($click1.html() !== '' && $click2.html() !== '')) {
-        $click1.off()
-        $click2.off()
+    if (click1.html() == click2.html() && (click1.html() !== '' && click2.html() !== '')) {
+        click1.off()
+        click2.off()
         for (i = 0; i < 1; i ++ ) {
-            if ($click1.html() == $click2.html() && $click1.text() !== 'Empty' && $click2.text() !== 'Empty' && $click1.find('img src') !== 'images/bombs/bomb.gif' && $click2.find('img src') !== 'images/bombs/bomb.gif') {
+            if (click1.html() == click2.html() && click1.text() !== 'Empty' && click2.text() !== 'Empty' && click1.find('img src') !== 'images/bombs/bomb.gif' && click2.find('img src') !== 'images/bombs/bomb.gif') {
                 if ($currentPlayerScore[0] == $('#p1score')[0]) {
                     $currentPlayerScore.text('Player 1 Score: ' + (currentPlayer.score + 10));
                     currentPlayer.score = currentPlayer.score + 10;
@@ -141,45 +159,44 @@ function checkMatch () {
                     $currentPlayerScore.text('Player 2 Score: ' + (currentPlayer.score + 10));
                     currentPlayer.score = currentPlayer.score + 10;
                 }
-                $click1.show();
-                $click2.show(); 
+                click1.show();
+                click2.show(); 
             }
         } 
-        //  Add points to the active player?
     }
     else {
-        $click1.find('img').hide(3000); 
-        $click2.find('img').hide(3000); 
+        click1.find('img').hide(300); 
+        click2.find('img').hide(300); 
     }
 
-    $click1 = null;
-    $click2 = null;
+    click1 = undefined;
+    click2 = undefined;
 };
 
-var $click1; 
-var $click2; 
 
-$squares.on('click', function () {
-    $(this).find('img').show(); 
-    if ($click1 == undefined) {
-        $click1 = $(this); 
-        if ($click1.html() == '') {
-            $click1.css({background: 'white'});
-            $click1.text('Empty');
-            $click1.off();
-        }
-    }
-    else if ($click1 !== undefined && $click1[0] !== $(this)[0]) {
-        $click2 = $(this); 
-        if ($click2.html() == '') {
-            $click2.css({background: 'white'});
-            $click2.text('Empty');
-            $click2.off();
-        }
-        checkMatch();    
-    }
-});
 
+function turnOnEventListeners () {
+    $squares.on('click', function () {
+        $(this).find('img').show(); 
+        if (click1 == undefined) {
+            click1 = $(this); 
+            if (click1.html() == '') {
+                click1.css({background: 'white'});
+                click1.text('Empty');
+                click1.off();
+            }
+        }
+        else if (click1 !== undefined && click1[0] !== $(this)[0]) {
+            click2 = $(this); 
+            if (click2.html() == '') {
+                click2.css({background: 'white'});
+                click2.text('Empty');
+                click2.off();
+            }
+            checkMatch();    
+        }
+    });
+}
 
 function gridReset () {
     $squares.html('');
@@ -187,7 +204,7 @@ function gridReset () {
     $squares.css({background: 'none'}); 
 };
 
-var $winner = $('<h1>').addClass('winner');
+
 
 function checkWinner () {
     if (player1.score > player2.score) {
@@ -228,10 +245,6 @@ $('li').on('click', function() {
     $winner.hide(); 
 });
 
-var theIntervalId;
-var $counter = $('#time');
-var seconds = 60
-$counter.text('Time: ' + seconds + ' seconds'); 
 
 function timer () {
     seconds = seconds - 1;
@@ -251,13 +264,9 @@ function timer () {
     }
 };
 
-// $squares.on(); 
-// $squares.off();
-// Need to figure out how to have dvi event listeners off until game is started
+
 
 // Ask about how I can avoid the bug where if someone clicks a div while it is slowly hiding, it doesnt work
-// Check out misc category (and others) the event listeners seem messed up
-
 // Bugs/Questions:
 // Current bug in matched divs... 
 // Sometimes, one of the two matched divs will be stuck on hide()... 

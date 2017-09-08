@@ -38,6 +38,7 @@ p {
     width: 90px; 
     border: 1px solid black; 
     float: left; 
+    /* Need to figure out how to increase border to 2 px and then take off border overlap */
 }
 
 img {
