@@ -123,7 +123,7 @@ function startGame (category) {
     for (var i = 0; i < cards[category].length; i++) {
         var $newValue = $("<img>").addClass('new-value').attr("src", cards[category][i]);
         // while random square has content
-            // find another random square
+        // find another random square
         var randomIndex = randomSquare(50)       
         while($squares.eq(randomIndex).html()) {
             randomIndex = randomSquare(50)
@@ -168,7 +168,6 @@ function checkMatch () {
         click1.find('img').hide(300); 
         click2.find('img').hide(300); 
     }
-
     click1 = undefined;
     click2 = undefined;
 };
@@ -194,7 +193,7 @@ function turnOnEventListeners () {
             checkMatch();    
         }
     });
-}
+};
 
 function gridReset () {
     $squares.html('');
