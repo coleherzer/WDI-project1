@@ -56,7 +56,7 @@ A group of random items hidden throughout. Match two of the same item and earn s
 
 --
 
-### Unsolved Problems - 
+### Unsolved Problems: 
 - Known bug where if two bombs are matches, player receives the 10 points for a match
 - Adjust game design for a better user experience
 - Need to make the game instructions more clear
@@ -67,7 +67,7 @@ A group of random items hidden throughout. Match two of the same item and earn s
 ### Features to Add:
 - Ability to keep track of which player won which games
 
-### User Stories - 
+### User Stories: 
 - As a user, I want to be able to receive points for discovering matches so I can earn more points than my opponent.
 - As a user, I want the game to be fun, so I can play it over and over again without being bored.
 - As a user, I want to be able to choose from different categories so I can have a change of pace from time to time. 
@@ -78,6 +78,10 @@ A group of random items hidden throughout. Match two of the same item and earn s
 - As a user, I want to know when my turns time is running out so I can panic-click as many boxes as possible.
 - As a user, I want there to be a penalty if my opponent or I click on a bomb so the game has a little edge to it. 
 
+-- 
+
+### Possible Pivot: 
+- change the game from a general matching game to a Staw Wars themed matching game
 
 
 
