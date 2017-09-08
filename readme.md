@@ -62,6 +62,11 @@ A group of random items hidden throughout. Match two of the same item and earn s
 - Need to make the game instructions more clear
 - Need to add more content to each category so there are less empty boxes
 
+--
+
+### Features to Add:
+- Ability to keep track of which player won which games
+
 ### User Stories - 
 - As a user, I want to be able to receive points for discovering matches so I can earn more points than my opponent.
 - As a user, I want the game to be fun, so I can play it over and over again without being bored.
