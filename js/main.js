@@ -54,6 +54,13 @@ function switchPlayer () {
     }
 };
 
+function scoreReset () {
+    player1.score = 0;
+    player2.score = 0;
+    $('#p1score').text('Player 1 Score: ' + player1.score)
+    $('#p2score').text('Player 2 Score: ' + player2.score)
+}
+
 
 function shuffle(array) {
     var m = array.length, t, i;
@@ -84,7 +91,7 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        $( "img.bomb" ).hide(); 
+        // $( "img.bomb" ).hide(); 
         $('img.bomb').parent().on('click', function () {
             if ($currentPlayerScore[0] == $('#p1score')[0]) {
                 $currentPlayerScore.text('Player 1 Score: ' + (currentPlayer.score - 2));
@@ -105,11 +112,12 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        $( "img.new-value" ).hide(); 
+        // $( "img.new-value" ).hide(); 
     }
 }; 
 
 var $play = $('#start-game'); 
+$play.hide(); 
 
 $play.on('click', function () {
     // $grid.show(); 
@@ -117,8 +125,6 @@ $play.on('click', function () {
         startGame(selectedCategory); 
         theIntervalId = setInterval(timer, 1000);
     }
-    // add a reset function to the play button
-    // Will add more functionality
 });
 
 function checkMatch () {
@@ -174,18 +180,31 @@ $squares.on('click', function () {
     }
 });
 
+
 function gridReset () {
     $squares.html('');
     $counter.css({color: 'black'}); 
     $squares.css({background: 'none'}); 
 };
 
+var $winner = $('<h1>').addClass('winner');
+
 function checkWinner () {
     if (player1.score > player2.score) {
-        alert('Player 1 wins');
+        $grid.fadeOut('fast'); 
+        $winner.fadeIn('fast'); 
+        $winner.html('<h1>Player 1 Wins! </ br>Choose a category to play again!</h1>'); 
+        $body.append($winner);
+        $play.hide(); 
+        scoreReset();
     }
     else {
-        alert('Player 2 wins'); 
+        $grid.fadeOut('fast'); 
+        $winner.fadeIn('fast'); 
+        $winner.html('<h1>Player 2 Wins! </ br> Choose a category to play again!</h1>'); 
+        $body.append($winner);
+        $play.hide(); 
+        scoreReset(); 
     }
 };
 
@@ -202,12 +221,12 @@ function checkWinner () {
 
 // If you have time, add the ability for the user to play single player
 
-
-
 $('li').on('click', function() {
     $grid.show(); 
-    selectedCategory = $(this).data('category')
-})
+    selectedCategory = $(this).data('category');
+    $play.show(); 
+    $winner.hide(); 
+});
 
 var theIntervalId;
 var $counter = $('#time');
