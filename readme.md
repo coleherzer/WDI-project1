@@ -66,6 +66,8 @@ A group of random items hidden throughout. Match two of the same item and earn s
 
 ### Features to Add:
 - Ability to keep track of which player won which games
+- Sound effects for if a match is found, if a match is not found, and if a bomb is clicked
+- Some fun background music
 
 ### User Stories: 
 - As a user, I want to be able to receive points for discovering matches so I can earn more points than my opponent.
