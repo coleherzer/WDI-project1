@@ -1,4 +1,4 @@
-// Javascript Variables
+// Javascript variables
 var timeLimit = 30
 var theIntervalId;
 var seconds = timeLimit
@@ -133,8 +133,6 @@ function startGame (category) {
     }
 }; 
 
-
-
 $play.on('click', function () {
     // $grid.show(); 
     if ($squares.text() == '') {
@@ -143,7 +141,6 @@ $play.on('click', function () {
     }
     $play.hide()
 });
-
 
 function checkMatch () {
     if (click1.html() == click2.html() && (click1.html() !== '' && click2.html() !== '')) {
