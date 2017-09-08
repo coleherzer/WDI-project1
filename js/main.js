@@ -108,7 +108,7 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        // $( "img.bomb" ).hide(); 
+        $( "img.bomb" ).hide(); 
         $('img.bomb').parent().on('click', function () {
             if ($currentPlayerScore[0] == $('#p1score')[0]) {
                 $currentPlayerScore.text('Player 1 Score: ' + (currentPlayer.score - 2));
@@ -129,7 +129,7 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        // $( "img.new-value" ).hide(); 
+        $( "img.new-value" ).hide(); 
     }
 }; 
 
@@ -173,8 +173,6 @@ function checkMatch () {
     click2 = undefined;
 };
 
-
-
 function turnOnEventListeners () {
     $squares.on('click', function () {
         $(this).find('img').show(); 
@@ -204,8 +202,6 @@ function gridReset () {
     $squares.css({background: 'none'}); 
 };
 
-
-
 function checkWinner () {
     if (player1.score > player2.score) {
         $grid.fadeOut('fast'); 
@@ -225,26 +221,12 @@ function checkWinner () {
     }
 };
 
-// Bonus points/timing stops if all matches uncovered before time limit
-
-// Make sure the game looks really nice
-// Give the grid some special styles such as making the borders look like wood beams or w/e
-// Maybe add a background hero type image if it looks nice
-// Maybe change the name?
-// Make cool animations?
-// Style buttons
-
-// Need to add more items to each category array so there arent so many empty squares
-
-// If you have time, add the ability for the user to play single player
-
 $('li').on('click', function() {
     $grid.show(); 
     selectedCategory = $(this).data('category');
     $play.show(); 
     $winner.hide(); 
 });
-
 
 function timer () {
     seconds = seconds - 1;
@@ -264,16 +246,14 @@ function timer () {
     }
 };
 
+// Need to fix scoring bug if two bombs are matched
 
+// Make sure the game looks really nice
+// Give the grid some special styles such as making the borders look like wood beams or w/e
+// Maybe add a background hero type image if it looks nice
+// Maybe change the name?
+// Make cool animations?
+// Style buttons
 
-// Ask about how I can avoid the bug where if someone clicks a div while it is slowly hiding, it doesnt work
-// Bugs/Questions:
-// Current bug in matched divs... 
-// Sometimes, one of the two matched divs will be stuck on hide()... 
-// Happens when you click the matched div as it is slowly returning to hide
-// Bug in that matching bombs deducts like 25 points (keep it?)
-
-// bug where if someone clicks play while the timer is already running, page freezes
-// Bug where sometimes the click to start the game counts as the first click I think
-// so it automatically considers the first click on the board not a match
+// Need to add more items to each category array so there arent so many empty squares
 
