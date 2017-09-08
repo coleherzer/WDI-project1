@@ -72,6 +72,8 @@ A group of random items hidden throughout. Match two of the same item and earn s
 - Some fun background music
 - Ability for users to input their names instead of playing as player 1 and player 2
 
+--
+
 ### User Stories: 
 - As a user, I want to be able to receive points for discovering matches so I can earn more points than my opponent.
 - As a user, I want the game to be fun, so I can play it over and over again without being bored.
