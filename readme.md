@@ -2,6 +2,8 @@
 
 --
 
+Play the game [here](https://coleherzer.github.io/WDI-project1/).
+
 ### Game Overview:
 
 Match Mania is a game in which a player must race against the clock to uncover matched items from the game board. Player(s) will have 60 seconds to uncover as many matches as they can. Hint: Matches = good, bombs = bad!
