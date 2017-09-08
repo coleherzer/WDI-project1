@@ -1,4 +1,4 @@
-var timeLimit = 60
+var timeLimit = 30
 var theIntervalId;
 var seconds = timeLimit
 var click1; 
