@@ -11,81 +11,83 @@
 </head>
 
 <body>
-    <h1>Match Mania</h1>
-    <p>Uncover matches by clicking boxes before time expires!</p>
-    <p>Make sure to watch out for bombs!</p>
+    <div id='container'>
+        <h1>Match Mania</h1>
+        <p>Uncover matches by clicking boxes before time expires!</p>
+        <p id='last-p'>Make sure to watch out for bombs!</p>
 
-    <div id='scoring'>
-        <h3 id='p1score'>Player 1 Score: 0</h3>
-        <h3 id='p2score'>Player 2 Score: 0</h3>
-    </div>
+        <div id='scoring'>
+            <h3 id='p1score'>Player 1 Score: 0</h3>
+            <h3 id='p2score'>Player 2 Score: 0</h3>
+        </div>
 
-    <h3 id='time'></h3>
+        <h3 id='time'></h3>
 
-    <button id='start-game'>Start Game</button>
+        <button id='start-game'>Start Game</button>
 
-    <div id='game-grid'>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-    </div>
-    
-    <div id='categories'>
-        <h3>Choose a Category to play!</h3>
-        <ul>
-            <li data-category="food">Food</li>
-            <li data-category="sports">Sports</li>
-            <li data-category="colors">Colors</li>
-            <li data-category="animals">Animals</li>
-            <li data-category="items">Miscelaneous</li>
-        </ul>
+        <div id='game-grid'>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+            <div class='square'></div>
+        </div>
+        
+        <div id='categories'>
+            <h3>Choose a Category to play!</h3>
+            <ul>
+                <li data-category="food">Food</li>
+                <li data-category="sports">Sports</li>
+                <li data-category="colors">Colors</li>
+                <li data-category="animals">Animals</li>
+                <li data-category="items">Miscelaneous</li>
+            </ul>
+        </div>
     </div>
 
     <script src="js/main.js"></script>

@@ -1,5 +1,5 @@
 var $grid = $('#game-grid'); 
-$grid.hide(); 
+// $grid.hide(); 
 
 var $squares = $('.square');
 
@@ -84,7 +84,7 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        // $( "img.bomb" ).hide(); 
+        $( "img.bomb" ).hide(); 
         $('img.bomb').parent().on('click', function () {
             if ($currentPlayerScore[0] == $('#p1score')[0]) {
                 $currentPlayerScore.text('Player 1 Score: ' + (currentPlayer.score - 2));
@@ -105,14 +105,14 @@ function startGame (category) {
             randomIndex = randomSquare(50)
         };
         $squares.eq(randomIndex).append($newValue);
-        // $( "img.new-value" ).hide(); 
+        $( "img.new-value" ).hide(); 
     }
 }; 
 
 var $play = $('#start-game'); 
 
 $play.on('click', function () {
-    $grid.show(); 
+    // $grid.show(); 
     if ($squares.text() == '') {
         startGame(selectedCategory); 
         theIntervalId = setInterval(timer, 1000);
@@ -176,6 +176,8 @@ $squares.on('click', function () {
 
 function gridReset () {
     $squares.html('');
+    $counter.css({color: 'black'}); 
+    $squares.css({background: 'none'}); 
 };
 
 function checkWinner () {
@@ -215,6 +217,9 @@ $counter.text('Time: ' + seconds + ' seconds');
 function timer () {
     seconds = seconds - 1;
     $counter.text('Time: '+ seconds + ' seconds');
+    if (seconds < 6) {
+        $counter.css({color: 'red'}); 
+    }
     if (seconds < 0) {
         clearInterval( theIntervalId )
         alert("Time's Up!");
@@ -227,6 +232,12 @@ function timer () {
     }
 };
 
+// $squares.on(); 
+// $squares.off();
+// Need to figure out how to have dvi event listeners off until game is started
+
+// Ask about how I can avoid the bug where if someone clicks a div while it is slowly hiding, it doesnt work
+// Check out misc category (and others) the event listeners seem messed up
 
 // Bugs/Questions:
 // Current bug in matched divs... 

@@ -1,10 +1,31 @@
 body {
     text-align: center; 
-    /* background-image: url("../images/background/match-background.jpeg");
+    background-image: url("../images/background/blue-background.jpeg");
     background-repeat: no-repeat; 
     background-size: cover; 
     width: 100%;
-    color: white;  */
+    margin: 0;
+    padding: 0; 
+}
+
+#container {
+    background: rgba(0, 0, 0, 0.4); 
+    margin-top: -25px;
+    padding: 0; 
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 40px;  
+}
+
+p {
+    margin: 5px; 
+    padding: 0; 
+}
+
+#last-p {
+    margin-bottom: 15px; 
 }
 
 #game-grid {
@@ -60,6 +81,9 @@ h3 {
 }
 
 #time {
-    display: block; 
+    display: block;  
+    text-align: right; 
+    margin-top: 5px; 
+    margin-right: 50px; 
     padding: 0; 
 }
