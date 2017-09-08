@@ -1,65 +1,63 @@
 body {
-    text-align: center; 
+    text-align: center;
     background-image: url("../images/background/blue-background.jpeg");
-    background-repeat: no-repeat; 
-    background-size: cover; 
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
     margin: 0;
-    padding: 0; 
+    padding: 0;
 }
 
 #container {
-    /* background: rgba(0, 0, 0, 0.4);  */
-    margin-top: -25px;
-    padding: 0; 
+    padding: 0;
 }
 
 h1 {
     margin-bottom: 10px;
-    font-size: 40px;  
+    font-size: 40px;
 }
 
 p {
-    margin: 5px; 
-    padding: 0; 
+    margin: 5px;
+    padding: 0;
 }
 
 #last-p {
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
 
 #game-grid {
     width: 82%;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 .square {
     height: 90px;
-    width: 90px; 
-    border: 1px solid black; 
-    float: left; 
+    width: 90px;
+    border: 1px solid black;
+    float: left;
     /* Need to figure out how to increase border to 2 px and then take off border overlap */
 }
 
 img {
     height: 90px;
-    width: 90px; 
+    width: 90px;
 }
 
 ul {
-    list-style: none; 
-    padding: 0; 
-    margin: 5px; 
+    list-style: none;
+    padding: 0;
+    margin: 5px;
 }
 
 li {
-    display: inline; 
-    margin: 20px; 
-    font-size: 18px; 
+    display: inline;
+    margin: 20px;
+    font-size: 18px;
 }
 
 li:hover {
-    color: red; 
+    color: red;
 }
 
 #scoring {
@@ -67,24 +65,24 @@ li:hover {
 }
 
 h3 {
-    display: inline; 
-    padding: 20px; 
+    display: inline;
+    padding: 20px;
 }
 
 #start-game {
-    margin: 10px auto; 
-    display: block; 
+    margin: 10px auto;
+    display: block;
 }
 
 #categories {
-    display: inline-block; 
+    display: inline-block;
     margin: 10px;
 }
 
 #time {
-    display: block;  
-    text-align: right; 
-    margin-top: 5px; 
-    margin-right: 50px; 
-    padding: 0; 
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+    margin-right: 50px;
+    padding: 0;
 }
