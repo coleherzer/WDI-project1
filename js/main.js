@@ -103,9 +103,9 @@ function startGame (category) {
     click2 = undefined;
     for (var i = 0; i < bombs.length; i++) {
         var $newValue = $("<img>").addClass('bomb').attr("src", bombs[i]);
-        var randomIndex = randomSquare(50)
+        var randomIndex = randomSquare(48)
         while($squares.eq(randomIndex).html()) {
-            randomIndex = randomSquare(50)
+            randomIndex = randomSquare(48)
         };
         $squares.eq(randomIndex).append($newValue);
         $( "img.bomb" ).hide();
@@ -124,9 +124,9 @@ function startGame (category) {
         var $newValue = $("<img>").addClass('new-value').attr("src", cards[category][i]);
         // while random square has content
         // find another random square
-        var randomIndex = randomSquare(50)       
+        var randomIndex = randomSquare(48)       
         while($squares.eq(randomIndex).html()) {
-            randomIndex = randomSquare(50)
+            randomIndex = randomSquare(48)
         };
         $squares.eq(randomIndex).append($newValue);
         $( "img.new-value" ).hide();
@@ -252,3 +252,7 @@ function timer () {
 // Style buttons
 
 // Need to add more items to each category array so there arent so many empty squares
+// Need to fix tie scoring
+// Need to increase img size
+
+
