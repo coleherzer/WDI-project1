@@ -34,6 +34,7 @@ body {
 
 .scores-container span {
   font-size: 2rem;
+  padding: 1rem;
 }
 
 .scores-container h3 {
