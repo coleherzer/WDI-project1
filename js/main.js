@@ -1,4 +1,5 @@
-var timeLimit = 60
+// Javascript variables
+var timeLimit = 30
 var theIntervalId;
 var seconds = timeLimit
 var click1;
@@ -38,6 +39,7 @@ var bombs = [
 
 var currentPlayer = player1;
 
+// jQuery variables
 var $counter = $('#time');
 var $winner = $('<h1>').addClass('winner');
 var $body = $('body');
@@ -51,6 +53,7 @@ $counter.text(seconds + ' seconds');
 
 var $currentPlayerScore = $('#p1score');
 
+// Functions
 function switchPlayer () {
     if (currentPlayer === player1) {
         currentPlayer = player2;
@@ -75,7 +78,6 @@ function scoreReset () {
     $('#p2score').text(player2.score)
 }
 
-
 function shuffle(array) {
     var m = array.length, t, i;
     // While there remain elements to shuffle…
@@ -94,8 +96,6 @@ function shuffle(array) {
 function randomSquare (n) {
     return Math.floor(Math.random() * n);
 };
-
-
 
 function startGame (category) {
     turnOnEventListeners();
@@ -133,8 +133,6 @@ function startGame (category) {
     }
 };
 
-
-
 $play.on('click', function () {
     // $grid.show();
     if ($squares.text() == '') {
@@ -143,7 +141,6 @@ $play.on('click', function () {
     }
     $play.hide()
 });
-
 
 function checkMatch () {
     if (click1.html() == click2.html() && (click1.html() !== '' && click2.html() !== '')) {
@@ -168,7 +165,6 @@ function checkMatch () {
         click1.find('img').hide(300);
         click2.find('img').hide(300);
     }
-
     click1 = undefined;
     click2 = undefined;
 };
@@ -194,7 +190,7 @@ function turnOnEventListeners () {
             checkMatch();
         }
     });
-}
+};
 
 function gridReset () {
     $squares.html('');
