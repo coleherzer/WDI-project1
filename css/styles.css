@@ -1,31 +1,30 @@
 body {
-    text-align: center; 
-    background-image: url("../images/background/blue-background.jpeg");
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    width: 100%;
-    margin: 0;
-    padding: 0; 
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%) !important;;
 }
 
-#container {
-    /* background: rgba(0, 0, 0, 0.4);  */
-    margin-top: -25px;
-    padding: 0; 
+.header-container {
+  padding-top: .5rem;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
 }
 
-h1 {
-    margin-bottom: 10px;
-    font-size: 40px;  
+.main-header {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: bold;
 }
 
-p {
-    margin: 5px; 
-    padding: 0; 
+.header-container p {
+  margin-bottom: 0;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1.4;
 }
 
-#last-p {
-    margin-bottom: 15px; 
+.bombs {
+  color: #e74c3c;
+  font-weight: bold;
 }
 
 #game-grid {
@@ -33,58 +32,130 @@ p {
     margin: 0 auto; 
 }
 
+.scores-container span {
+  font-size: 2rem;
+}
+
+.scores-container h3 {
+  font-size: 1.15rem;
+  font-weight: bold;
+  opacity: .5;
+}
+
+h3.title {
+  background-color:#D7DEFC;
+  border-radius: 4px 4px 0 0;
+  padding: .4rem 1rem;
+  margin-bottom: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  opacity: .8;
+  text-transform: uppercase;
+}
+
+.time-container {
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.25);
+  border-radius: 4px;
+  margin: 1rem 2.5rem;
+  height: 120px;
+}
+
+.time-container h2 {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+
+.categories-container {
+  margin-top:2rem;
+  text-align: center;
+}
+
+.categories-title {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #fff;
+  opacity: .8;
+}
+
+.categories-list {
+  list-style-type: none;
+}
+
+.category-option {
+  position: relative;
+  display: inline-block;
+  font-size: 1.6rem;
+  margin: 0 2rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 400;
+  position: relative;
+  text-decoration: none;
+}
+
+.category-option:hover {
+  color: $white;
+}
+
+.category-option:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #333;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.category-option:hover:before {
+  visibility: visible;
+  background-color: #f2f2f2;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+button.start-button {
+  border-radius: 4px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+button.start-button:hover {
+  background-color: #ff7e00;
+  background-image: -webkit-linear-gradient(119deg, #ff7e00 0%, #FF2525 74%);
+  background-image: -o-linear-gradient(119deg, #ff7e00 0%, #FF2525 74%);
+  background-image: linear-gradient(209deg, #ff7e00 0%, #FF2525 74%);
+  border: none;
+}
+
+#game-grid {
+    width: 82%;
+    margin: 2rem auto;
+}
+
 .square {
     height: 90px;
-    width: 90px; 
-    border: 1px solid black; 
-    float: left; 
-    /* Need to figure out how to increase border to 2 px and then take off border overlap */
+    width: 90px;
+    border: 1px solid black;
+    /*Need to figure out how to increase border to 2 px and then take off border overlap*/
 }
 
 img {
-    height: 90px;
-    width: 90px; 
-}
-
-ul {
-    list-style: none; 
-    padding: 0; 
-    margin: 5px; 
-}
-
-li {
-    display: inline; 
-    margin: 20px; 
-    font-size: 18px; 
-}
-
-li:hover {
-    color: red; 
-}
-
-#scoring {
-    display: inline;
-}
-
-h3 {
-    display: inline; 
-    padding: 20px; 
-}
-
-#start-game {
-    margin: 10px auto; 
-    display: block; 
-}
-
-#categories {
-    display: inline-block; 
-    margin: 10px;
-}
-
-#time {
-    display: block;  
-    text-align: right; 
-    margin-top: 5px; 
-    margin-right: 50px; 
-    padding: 0; 
+    height: 50px;
+    width: 50px;
 }
