@@ -159,6 +159,6 @@ button.start-button:hover {
 }
 
 img {
-    height: 80px;
-    width: 80px;
+    height: 70px !important;;
+    width: 70px !important;;
 }
