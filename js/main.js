@@ -1,5 +1,5 @@
 // Javascript variables
-var timeLimit = 30
+var timeLimit = 60
 var theIntervalId;
 var seconds = timeLimit
 var click1;
