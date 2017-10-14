@@ -1,3 +1,20 @@
+// Need to change the other categories to have emoji content 
+// Then make any other changes
+// Then make sure to push up to GH-pages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Javascript variables
 var timeLimit = 60
 var theIntervalId;
