@@ -14,17 +14,21 @@ var player2 = {
     score: 0
 };
 
+// Want to go in and change the categories and their content from images
+// To simply emoji font (make it look nicer)
+// May need to change category names
+
 var cards = {
     food: [
-        'images/food/pizza.jpeg', 'images/food/pizza.jpeg', 'images/food/fries.png', 'images/food/fries.png', 'images/food/ice-cream.png', 'images/food/ice-cream.png', 'images/food/sushi.jpeg', 'images/food/sushi.jpeg', 'images/food/taco.jpeg', 'images/food/taco.jpeg', 'images/food/salad.jpeg', 'images/food/salad.jpeg', 'images/food/apple.jpeg', 'images/food/apple.jpeg', 'images/food/burger.jpeg', 'images/food/burger.jpeg', 'images/food/cookie.jpeg', 'images/food/cookie.jpeg', 'images/food/hot-dog.png', 'images/food/hot-dog.png', 'images/food/donut.jpeg', 'images/food/donut.jpeg', 'images/food/fried-chicken.jpeg', 'images/food/fried-chicken.jpeg'
+        '🍎', '🍎', '🍒', '🍒', '🍌', '🍌', '🍕', '🍕', '🥕', '🥕', '🍟', '🍟', '🌮', '🌮', '🍤', '🍤', '🍔', '🍔', '🌭', '🌭', '🍣', '🍣', '🍪', '🍪', '🍫', '🍫', '🥑', '🥑', '🥓', '🥓', '🥐', '🥐', '🍦', '🍦', '🍋', '🍋', '🍩', '🍩', '🍭', '🍭', '🍗', '🍗', '🌽', '🌽' 
     ],
-    sports: [
+    acitiviy: [
         'images/sports/baseball.jpeg', 'images/sports/baseball.jpeg', 'images/sports/basketball.jpeg', 'images/sports/basketball.jpeg', 'images/sports/hockey-stick.png', 'images/sports/hockey-stick.png', 'images/sports/tennis-ball.jpeg', 'images/sports/tennis-ball.jpeg', 'images/sports/soccer-ball.png', 'images/sports/soccer-ball.png', 'images/sports/golf-club.png', 'images/sports/golf-club.png', 'images/sports/racket.png', 'images/sports/racket.png', 'images/sports/8ball.jpeg', 'images/sports/8ball.jpeg', 'images/sports/football.jpeg', 'images/sports/football.jpeg', 'images/sports/ping-pong.jpeg', 'images/sports/ping-pong.jpeg', 'images/sports/bowling.png', 'images/sports/bowling.png', 'images/sports/volleyball.jpeg', 'images/sports/volleyball.jpeg'
     ],
-    colors: [
+    smileys: [
         'images/colors/blue.png', 'images/colors/blue.png', 'images/colors/red.png', 'images/colors/red.png', 'images/colors/green.png', 'images/colors/green.png', 'images/colors/yellow.png', 'images/colors/yellow.png', 'images/colors/black.png', 'images/colors/black.png', 'images/colors/gray.png', 'images/colors/gray.png', 'images/colors/orange.png', 'images/colors/orange.png', 'images/colors/purple.jpeg', 'images/colors/purple.jpeg', 'images/colors/white.jpeg', 'images/colors/white.jpeg', 'images/colors/gold.jpeg', 'images/colors/gold.jpeg', 'images/colors/brown.png', 'images/colors/brown.png', 'images/colors/pink.png', 'images/colors/pink.png'
     ],
-    items: [
+    objects: [
         'images/items/book.jpeg', 'images/items/book.jpeg', 'images/items/tree.jpeg', 'images/items/tree.jpeg', 'images/items/cloud.png', 'images/items/cloud.png', 'images/items/house.png', 'images/items/house.png', 'images/items/boat.jpeg', 'images/items/boat.jpeg', 'images/items/person.jpeg', 'images/items/person.jpeg', 'images/items/pyramid.jpeg', 'images/items/pyramid.jpeg', 'images/items/plane.jpeg', 'images/items/plane.jpeg', 'images/items/light-bulb.jpeg', 'images/items/light-bulb.jpeg', 'images/items/shoe.png', 'images/items/shoe.png', 'images/items/map.png', 'images/items/map.png', 'images/items/gold-coin.jpeg', 'images/items/gold-coin.jpeg'
     ],
     animals: [
@@ -34,7 +38,7 @@ var cards = {
 };
 
 var bombs = [
-    'images/bombs/bomb.gif', 'images/bombs/bomb.gif', 'images/bombs/bomb.gif'
+    'images/bombs/bomb.gif', 'images/bombs/bomb.gif', 'images/bombs/bomb.gif'// add another bomb (so 4 bombs and 44 items on board)
 ];
 
 var currentPlayer = player1;
@@ -121,7 +125,7 @@ function startGame (category) {
         })
     }
     for (var i = 0; i < cards[category].length; i++) {
-        var $newValue = $("<img>").addClass('new-value').attr("src", cards[category][i]);
+        var $newValue = $("<p>").addClass('new-value').text(cards[category][i]);
         // while random square has content
         // find another random square
         var randomIndex = randomSquare(48)       
@@ -129,7 +133,7 @@ function startGame (category) {
             randomIndex = randomSquare(48)
         };
         $squares.eq(randomIndex).append($newValue);
-        $( "img.new-value" ).hide();
+        $( "p.new-value" ).hide();
     }
 };
 
@@ -171,7 +175,7 @@ function checkMatch () {
 
 function turnOnEventListeners () {
     $squares.on('click', function () {
-        $(this).find('img').show();
+        $(this).find('p.new-value').show();
         if (click1 == undefined) {
             click1 = $(this);
             if (click1.html() == '') {
