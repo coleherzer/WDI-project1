@@ -38,7 +38,7 @@ var cards = {
 };
 
 var bombs = [
-    'images/bombs/bomb.gif', 'images/bombs/bomb.gif', 'images/bombs/bomb.gif'// add another bomb (so 4 bombs and 44 items on board)
+    '💣', '💣', '💣', '💣'
 ];
 
 var currentPlayer = player1;
@@ -106,14 +106,14 @@ function startGame (category) {
     click1 = undefined;
     click2 = undefined;
     for (var i = 0; i < bombs.length; i++) {
-        var $newValue = $("<img>").addClass('bomb').attr("src", bombs[i]);
+        var $newValue = $("<p>").addClass('bomb').text(bombs[i]);
         var randomIndex = randomSquare(48)
         while($squares.eq(randomIndex).html()) {
             randomIndex = randomSquare(48)
         };
         $squares.eq(randomIndex).append($newValue);
-        $( "img.bomb" ).hide();
-        $('img.bomb').parent().on('click', function () {
+        $( "p.bomb" ).hide();
+        $('p.bomb').parent().on('click', function () {
             if ($currentPlayerScore[0] == $('#p1score')[0]) {
                 $currentPlayerScore.text(currentPlayer.score - 2);
                 currentPlayer.score = currentPlayer.score - 2;
@@ -147,11 +147,11 @@ $play.on('click', function () {
 });
 
 function checkMatch () {
-    if (click1.html() == click2.html() && (click1.html() !== '' && click2.html() !== '')) {
+    if (click1.text() == click2.text() && (click1.text() !== '' && click2.text() !== '')) {
         click1.off()
         click2.off()
         for (i = 0; i < 1; i ++ ) {
-            if (click1.html() == click2.html() && click1.text() !== 'Empty' && click2.text() !== 'Empty' && click1.find('img src') !== 'images/bombs/bomb.gif' && click2.find('img src') !== 'images/bombs/bomb.gif') {
+            if (click1.text() == click2.text() && click1.text() !== 'Empty' && click2.text() !== 'Empty' && click1.text() !== '💣' && click2.text() !== '💣') {
                 if ($currentPlayerScore[0] == $('#p1score')[0]) {
                     $currentPlayerScore.text(currentPlayer.score + 10);
                     currentPlayer.score = currentPlayer.score + 10;
@@ -166,8 +166,8 @@ function checkMatch () {
         }
     }
     else {
-        click1.find('img').hide(300);
-        click2.find('img').hide(300);
+        click1.find('p.new-value').hide(300);
+        click2.find('p.new-value').hide(300);
     }
     click1 = undefined;
     click2 = undefined;
@@ -176,6 +176,7 @@ function checkMatch () {
 function turnOnEventListeners () {
     $squares.on('click', function () {
         $(this).find('p.new-value').show();
+        $(this).find('p.bomb').show();
         if (click1 == undefined) {
             click1 = $(this);
             if (click1.html() == '') {

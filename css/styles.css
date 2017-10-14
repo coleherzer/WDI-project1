@@ -158,7 +158,21 @@ button.start-button:hover {
     /*Need to figure out how to increase border to 2 px and then take off border overlap*/
 }
 
-img {
+/* img {
     height: 70px !important;;
     width: 70px !important;;
+} */
+
+p.new-value {
+  font-size: 4rem; 
+  text-align: center; 
+  margin-left: -0.7rem;  
+  margin-top: -0.2rem;
+}
+
+p.bomb {
+  font-size: 4rem; 
+  text-align: center;
+  margin-left: -0.7rem;  
+  margin-top: -0.2rem;
 }
