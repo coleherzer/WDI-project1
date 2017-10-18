@@ -14,10 +14,6 @@ var player2 = {
     score: 0
 };
 
-// Want to go in and change the categories and their content from images
-// To simply emoji font (make it look nicer)
-// May need to change category names
-
 var cards = {
     food: [
         '🍎', '🍎', '🍒', '🍒', '🍌', '🍌', '🍕', '🍕', '🥕', '🥕', '🍟', '🍟', '🌮', '🌮', '🍤', '🍤', '🍔', '🍔', '🌭', '🌭', '🍣', '🍣', '🍪', '🍪', '🍫', '🍫', '🥑', '🥑', '🥓', '🥓', '🥐', '🥐', '🍦', '🍦', '🍋', '🍋', '🍩', '🍩', '🍭', '🍭', '🍗', '🍗', '🌽', '🌽' 
@@ -247,17 +243,19 @@ function timer () {
     }
 };
 
+
+
+
+
+// Backlog
+
 // Need to fix scoring bug if two bombs are matched
 
-// Make sure the game looks really nice
-// Give the grid some special styles such as making the borders look like wood beams or w/e
-// Maybe add a background hero type image if it looks nice
-// Maybe change the name?
-// Make cool animations?
-// Style buttons
+// Need to turn off category event listeners while a game is in progress
+// OR need to clear the board and reset the clock if a category is clicked during a game
 
-// Need to add more items to each category array so there arent so many empty squares
-// Need to fix tie scoring
-// Need to increase img size
+// Think about adding animations
+
+// Update Readme.md
 
 
