@@ -1,20 +1,3 @@
-// Need to change the other categories to have emoji content 
-// Then make any other changes
-// Then make sure to push up to GH-pages
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Javascript variables
 var timeLimit = 60
 var theIntervalId;
@@ -39,17 +22,17 @@ var cards = {
     food: [
         '🍎', '🍎', '🍒', '🍒', '🍌', '🍌', '🍕', '🍕', '🥕', '🥕', '🍟', '🍟', '🌮', '🌮', '🍤', '🍤', '🍔', '🍔', '🌭', '🌭', '🍣', '🍣', '🍪', '🍪', '🍫', '🍫', '🥑', '🥑', '🥓', '🥓', '🥐', '🥐', '🍦', '🍦', '🍋', '🍋', '🍩', '🍩', '🍭', '🍭', '🍗', '🍗', '🌽', '🌽' 
     ],
-    acitiviy: [
+    activity: [
         '⚽️', '⚽️', '🏀', '🏀', '🏈', '🏈', '⚾️', '⚾️', '🎾', '🎾', '🏐', '🏐', '🎱', '🎱', '🏓', '🏓', '🏒', '🏒', '⛳️', '⛳️', '🎣', '🎣', '🏂', '🏂', '🏄', '🏄', '🚴‍♀️', '🚴‍♀️', '🎮', '🎮', '🏇', '🏇', '🎸', '🎸', '🎲', '🎲', '🎳', '🎳', '🎨', '🎨', '🏏', '🏏', '🎯', '🎯' 
     ],
     smileys: [
-        'images/colors/blue.png', 'images/colors/blue.png', 'images/colors/red.png', 'images/colors/red.png', 'images/colors/green.png', 'images/colors/green.png', 'images/colors/yellow.png', 'images/colors/yellow.png', 'images/colors/black.png', 'images/colors/black.png', 'images/colors/gray.png', 'images/colors/gray.png', 'images/colors/orange.png', 'images/colors/orange.png', 'images/colors/purple.jpeg', 'images/colors/purple.jpeg', 'images/colors/white.jpeg', 'images/colors/white.jpeg', 'images/colors/gold.jpeg', 'images/colors/gold.jpeg', 'images/colors/brown.png', 'images/colors/brown.png', 'images/colors/pink.png', 'images/colors/pink.png'
+        '😀', '😀', '😆', '😆', '😅', '😅', '🤣', '🤣', '😊', '😊', '😇', '😇', '🙃', '🙃', '😉', '😉', '😍', '😍', '😘', '😘', '🤓', '🤓', '😎', '😎', '🤡', '🤡', '🤠', '🤠', '😜', '😜', '😡', '😡', '😩', '😩', '☹️', '☹️', '😱', '😱', '😳', '😳', '😴', '😴', '🤢', '🤢' 
     ],
     objects: [
-        'images/items/book.jpeg', 'images/items/book.jpeg', 'images/items/tree.jpeg', 'images/items/tree.jpeg', 'images/items/cloud.png', 'images/items/cloud.png', 'images/items/house.png', 'images/items/house.png', 'images/items/boat.jpeg', 'images/items/boat.jpeg', 'images/items/person.jpeg', 'images/items/person.jpeg', 'images/items/pyramid.jpeg', 'images/items/pyramid.jpeg', 'images/items/plane.jpeg', 'images/items/plane.jpeg', 'images/items/light-bulb.jpeg', 'images/items/light-bulb.jpeg', 'images/items/shoe.png', 'images/items/shoe.png', 'images/items/map.png', 'images/items/map.png', 'images/items/gold-coin.jpeg', 'images/items/gold-coin.jpeg'
+        '⌚️', '⌚️', '💻', '💻', '🖨', '🖨', '💾', '💾', '📀', '📀', '🎥', '🎥', '📞', '📞', '📺', '📺', '⌛️', '⌛️', '💡', '💡', '💰', '💰', '💎', '💎', '🔨', '🔨', '🔫', '🔫', '⚔️', '⚔️', '🔮', '🔮', '💊', '💊', '🗝', '🗝', '🎁', '🎁', '✉️', '✉️', '📕', '📕', '✏️', '✏️'
     ],
     animals: [
-        'images/animals/dog.jpeg', 'images/animals/dog.jpeg', 'images/animals/cat.jpeg', 'images/animals/cat.jpeg', 'images/animals/sheep.jpeg', 'images/animals/sheep.jpeg', 'images/animals/cow.jpeg', 'images/animals/cow.jpeg', 'images/animals/horse.jpeg', 'images/animals/horse.jpeg', 'images/animals/elephant.png', 'images/animals/elephant.png', 'images/animals/bunny.jpeg', 'images/animals/bunny.jpeg', 'images/animals/penguin.png', 'images/animals/penguin.png', 'images/animals/snake.jpeg', 'images/animals/snake.jpeg', 'images/animals/chicken.png', 'images/animals/chicken.png', 'images/animals/turtle.jpeg', 'images/animals/turtle.jpeg', 'images/animals/fish.png', 'images/animals/fish.png', 'images/animals/bear.png', 'images/animals/bear.png'
+        '🐶', '🐶', '🐱', '🐱', '🐭', '🐭', '🦊', '🦊', '🐻', '🐻', '🐼', '🐼', '🐨', '🐨', '🐯', '🐯', '🐮', '🐮', '🐸', '🐸', '🐵', '🐵', '🐔', '🐔', '🐧', '🐧', '🦆', '🦆', '🦉', '🦉', '🦋', '🦋', '🐍', '🐍', '🐠', '🐠', '🐢', '🐢', '🐝', '🐝', '🐬', '🐬', '🐙', '🐙'
     ]
     // Add a heroes category?
 };
